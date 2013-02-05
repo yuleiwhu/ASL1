@@ -27,9 +27,9 @@ step = 0.05;
 mu1 = 1.5; mu2 = 1;mu3 = 1.7;
 daat = (1.2-0.7):step:(2.2-0.1);
 rho = 0.8;
-eta1 = pdf('norm',daat',mu1,0.01);
-eta2 = pdf('norm',daat',mu2,0.01);
-eta3 = pdf('norm',daat',mu3,0.01);
+eta1 = normcol(pdf('norm',daat',mu1,0.01));
+eta2 = normcol(pdf('norm',daat',mu2,0.01));
+eta3 = normcol(pdf('norm',daat',mu3,0.01));
 
 
 T = 1.2:0.1:2.2;
