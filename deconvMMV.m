@@ -40,7 +40,7 @@ function [cbf,spectrum] = deconvMMV(data,M0,Phi,Amp)
 %       spect.showMRI;
 % ------------------------------------------------------------------
 % Created on Jan 29, 2013 by Lei Yu
-%
+% everything is ok
 
 
 [M,N] = size(Phi);
