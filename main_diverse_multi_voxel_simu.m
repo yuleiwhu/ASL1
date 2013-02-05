@@ -55,7 +55,7 @@ for i = 1:length(T)
     dataorg(h+1:end,w+1:end,i) = perfusion3(i);
     dataorg(1:h,w+1:end,i) = perfusion4(i);
 end
-data = dataorg + randn(H,W,length(T))*0.5; 
+data = dataorg + randn(H,W,length(T))*1; 
 I = cMRI(data);I.showMRI
 
 % return;
@@ -85,7 +85,7 @@ cbf.showMRI;
 
 %%
 % [p] = [22,45];
-[p] = [2,2];
+[p] = [4,4];
 etaest = squeeze(spectrum(p(1),p(2),:));
 dat = squeeze(data(p(1),p(2),:));
 cbff = sum(etaest);

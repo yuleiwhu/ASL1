@@ -18,14 +18,29 @@
 % 
 
 
-load Phi_0_01_buxton.mat
-% Phi= randn(size(Phi));
-% Phi = normcol(Phi);
+load Phi_0_01.mat
 
+% Dictionary
+% T = 1.2:0.1:2.2;
+% asl = cPASL();
+% DicAAT = (1.2-0.7):step:(2.2-step);
+% N = length(DicAAT); % dictionary width
+% M = length(T); % dictionary height
+% Phi = zeros(M,N);
+% Amp = zeros(N,1);
+% for i = 1:N
+%     Phi(:,i) = asl.paslModel(DicAAT(i),'buxton',T); % f is set to 1 by default
+%     Amp(i) = norm(Phi(:,i));
+%     Phi(:,i) = Phi(:,i)/Amp(i);
+% end
+
+% Phi= randn(size(Phi)+[20,0]);
+% Phi = normcol(Phi);
+%%
 step = 0.02;
 mu1 = 1; mu2 = 1.9;
 daat = (1.2-0.7):step:(2.2-step);
-rho = 0.999;
+rho = 0.5;
 eta1 = pdf('norm',daat,mu1,0.01)*rho;
 eta2 = pdf('norm',daat,mu2,0.01)*(1-rho);
 eta = (eta1+eta2)/sum(eta1+eta2);
@@ -34,7 +49,7 @@ y = Phi*eta(:);
 
 m = 10;
 Yo = repmat(y,1,m);
-Y = Yo + randn(size(Yo))*.2;
+Y = Yo + randn(size(Yo))*.1;
 % .2 then snr = 2-4dB
 % .1 then snr = 8-10dB
 % .05 then snr = 13-14dB

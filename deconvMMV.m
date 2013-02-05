@@ -63,7 +63,7 @@ for i = 1:h
         % ------------------------------------------------------------------
         % Solve mmv problem
         option.noiselevel = 'l';
-        option.maxIter = 1000;
+        option.maxIter = 10000;
         [S,D] = SolveGroupMMV(Phi,Y,option);
         S = S*D;
 %         S = TMSBL(Phi, Y,'PRUNE_GAMMA',1e-5,'PRINT',0);
@@ -93,7 +93,7 @@ end
 
 function [locy,locx,convImg] = voisin(i,j,w,h)
 % Find neighbors
-orderN = 2;
+orderN = 0;
 tempNShape = ones(2*orderN+1);
 tempPulse = zeros(w,h);tempPulse(i,j) = 1;
 convImg = conv2(tempPulse,tempNShape,'smae');
