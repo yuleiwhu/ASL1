@@ -27,9 +27,9 @@ step = 0.05;
 mu1 = 1.5; mu2 = 1;mu3 = 1.7;
 daat = (1.2-0.7):step:(2.2-0.1);
 rho = 0.8;
-eta1 = pdf('norm',daat,mu1,0.01);
-eta2 = pdf('norm',daat,mu2,0.01);
-eta3 = pdf('norm',daat,mu3,0.01);
+eta1 = pdf('norm',daat',mu1,0.01);
+eta2 = pdf('norm',daat',mu2,0.01);
+eta3 = pdf('norm',daat',mu3,0.01);
 
 
 T = 1.2:0.1:2.2;
@@ -55,7 +55,7 @@ for i = 1:length(T)
     dataorg(h+1:end,w+1:end,i) = perfusion3(i);
     dataorg(1:h,w+1:end,i) = perfusion4(i);
 end
-data = dataorg + randn(H,W,length(T))*0; 
+data = dataorg + randn(H,W,length(T))*0.5; 
 I = cMRI(data);I.showMRI
 
 % return;

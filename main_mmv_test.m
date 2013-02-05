@@ -18,7 +18,7 @@
 % 
 
 
-load Phi_0_02_buxton.mat
+load Phi_0_01_buxton.mat
 % Phi= randn(size(Phi));
 % Phi = normcol(Phi);
 
@@ -26,7 +26,7 @@ step = 0.02;
 mu1 = 1; mu2 = 1.9;
 daat = (1.2-0.7):step:(2.2-step);
 rho = 0.999;
-eta1 = pdf('norm',daat,mu1,0.1)*rho;
+eta1 = pdf('norm',daat,mu1,0.01)*rho;
 eta2 = pdf('norm',daat,mu2,0.01)*(1-rho);
 eta = (eta1+eta2)/sum(eta1+eta2);
 
@@ -41,7 +41,7 @@ Y = Yo + randn(size(Yo))*.2;
 disp(snr(Yo,Y))
 %%
 option.noiselevel = 'l';
-option.maxIter = 500;
+option.maxIter = 1000;
 option.display = 0;
 option.K = 2;
 X = Phi'*Y;
