@@ -88,7 +88,7 @@ for i = 1:N
     m0 = mean(M0(M0>100));
     spectrum(:,:,i) = spectrum(:,:,i)/Amp(i)/m0;
 end
-cbf = sum(spectrum,3); 
+cbf = sum(spectrum,3);
 end
 
 function [locy,locx,convImg] = voisin(i,j,w,h)
